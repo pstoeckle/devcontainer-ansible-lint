@@ -1,8 +1,16 @@
 {
-    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
     "customizations": {
         "vscode": {
+            "extensions": [
+                "bierner.emojisense",
+                "github.vscode-github-actions",
+                "mads-hartmann.bash-ide-vscode",
+                "redhat.vscode-yaml"
+            ],
             "settings": {
+                "editor.formatOnSave": true,
+                "editor.formatOnSaveMode": "file",
+                "http.proxySupport": "off",
                 "json.schemas": [
                     {
                         "fileMatch": [
@@ -11,15 +19,14 @@
                         "url": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainerFeature.schema.json"
                     }
                 ]
-            },
-            "extensions": [
-                "mads-hartmann.bash-ide-vscode"
-            ]
+            }
         }
     },
     "features": {
         "ghcr.io/devcontainers/features/docker-in-docker:2": {}
     },
+    "image": "mcr.microsoft.com/devcontainers/javascript-node:1-18-bullseye",
+    "postCreateCommand": "chmod +x .devcontainer/postCreateCommand.sh && .devcontainer/postCreateCommand.sh",
     "remoteUser": "node",
     "updateContentCommand": "npm install -g @devcontainers/cli"
 }
